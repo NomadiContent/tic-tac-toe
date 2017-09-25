@@ -79,6 +79,7 @@
                 $('#finish').hide();
                 $( "li" ).removeClass( "box-filled-2 box-filled-1" )
                 $("#finish").removeClass('screen-win-one screen-win-two screen-win-tie')
+                $('.box').css("background-color", '#EFEFEF');
 
               });
             }
@@ -97,6 +98,7 @@
               $("#finish").removeClass('screen-win-one screen-win-two screen-win-tie')
               $('#board').show();
               $('#finish').hide();
+              $('.box').css("background-color", '#EFEFEF');
 
             });
           }
@@ -112,12 +114,14 @@
           } else {
           if ((turn % 2) === 0) {
             $(this).addClass('box-filled-2')
+            $(this).css('background-color', '#3688C3');
             $("#player1").addClass('active');
             $("#player2").removeClass('active');
             turn += 1;
 
         } else {
             $(this).addClass('box-filled-1')
+            $(this).css('background-color', '#FFA000');
             $("#player2").addClass('active');
             $("#player1").removeClass('active');
             turn += 1;
@@ -131,15 +135,14 @@
       //show player maker on mouseover
       $('.box').mouseover(function(){
         if ((turn % 2) === 0 && !($(this).hasClass('box-filled-2')) && !($(this).hasClass('box-filled-1'))) {
-          $(this).css("background-image", `url(/Users/charleymontgomery/Desktop/tic-tac-toe-v3/img/x.svg)`);
+          $(this).css("background-image", `url('img/x.svg')`);
         } else if (!($(this).hasClass('box-filled-2')) && !($(this).hasClass('box-filled-1'))){
-          $(this).css("background-image", `url(/Users/charleymontgomery/Desktop/tic-tac-toe-v3/img/o.svg)`);
+          $(this).css("background-image", `url('img/o.svg')`);
         }
       });
 
       $('.box').mouseleave(function(){
         $(this).css("background-image", "");
-        $(this).css("background-color", '#EFEFEF')
       });
 
   });
